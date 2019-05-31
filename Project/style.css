@@ -1,0 +1,30 @@
+body {
+    height: 1500px;
+}
+
+.container-fluid {
+    background: #AA3939;
+    height: 100%;
+}
+
+.jumbotron {
+    background: #550000;
+    color: #FFAAAA;
+}
+
+table {
+    background: #D46A6A;
+    border: #801515;
+    margin: 0px 20px 0px 20px;
+}
+
+tr, th {
+    color: #801515;
+    text-align: center;
+}
+
+#btnAdd{
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+}
