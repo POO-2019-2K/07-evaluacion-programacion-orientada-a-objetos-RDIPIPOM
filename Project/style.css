@@ -3,28 +3,57 @@ body {
 }
 
 .container-fluid {
-    background: #AA3939;
+    background: #438D9B;
     height: 100%;
 }
 
 .jumbotron {
-    background: #550000;
-    color: #FFAAAA;
+    background: #08515F;
+    color: white;
 }
 
 table {
-    background: #D46A6A;
-    border: #801515;
+    background: #156878;
+    border: white;
     margin: 0px 20px 0px 20px;
-}
-
-tr, th {
-    color: #801515;
+    font-size: 20px;
     text-align: center;
 }
 
-#btnAdd{
-    width: 48px;
-    height: 48px;
+tr, th {
+    color: white;
+    text-align: center;
+}
+
+th {
+    font-size: 30px;
+}
+
+#btnAdd {
+    width: 70px;
+    height: 70px;
     margin: 10px;
+    background-repeat: no-repeat;
+    background-image: url('./Assets/Add.png');
+    background-position: center;
+    background-color: white;
+    border-radius: 10px;
+    border: solid white;
+}
+
+#btnAdd:hover {
+    background-image: url('./Assets/Add_big.png');
+    background-color: #438D9B;
+}
+
+.modal-content {
+    background-color: #156878;
+    color: white;
+    border: solid white;
+    box-shadow: 0px 0px 100px 10px black;
+}
+
+form {
+    text-align: center;
+    padding: 20px;
 }

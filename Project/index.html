@@ -19,13 +19,49 @@
             </div>
         </div>
         <div>
-            <button id="btnAdd" class="button" type="button">+</button>
+            <button id="btnAdd" type="button" data-toggle="modal" data-target="#dialogo1"></button>
         </div>
+
+        <!--Diálogo Modal-->
+
+        <div class="modal fade" id="dialogo1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- cabecera del diálogo -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Nueva tarea</h4>
+                        <button type="button" class="close" data-dismiss="modal">X</button>
+                    </div>
+
+                    <!-- cuerpo del diálogo -->
+                    <form id="formTask">
+                        <div class="form-group">
+                            <label for="title">Título:</label>
+                            <input id="title" class="form-control" type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Descripción:</label>
+                            <textarea id="description" class="form-control" rows="8" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="limitDate">Fecha de límite:</label>
+                            <input id="limitDate" class="form-control" type="date" required>
+                        </div>
+                        <button id="btnRegister" type="button" class="btn btn-primary"
+                            data-dismiss="modal">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--Table-->
+
         <div class="row">
-            <table class="table">
+            <table id="tableTasks" class="table">
                 <thead>
                     <tr>
-                        <th colspan="3">Tareas actuales</th>
+                        <th colspan="7">Tareas actuales</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +69,7 @@
                         <td colspan="1" class="sub-header">
                             <label for="sort">Ordenar por:</label>
                         </td>
-                        <td colspan="2" class="sub-header">
+                        <td colspan="6" class="sub-header">
                             <select id="sort" class="form-control">
                                 <option value="tname">Nombre</option>
                                 <option value="tage">Edad</option>
@@ -44,6 +80,7 @@
                         <td>Nombre</td>
                         <td>Fecha límite</td>
                         <td>Días restantes</td>
+                        <td colspan="3">Opciones</td>
                     </tr>
                 </tbody>
             </table>
