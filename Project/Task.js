@@ -17,7 +17,8 @@ export default class Task{
     }
 
     get limitDate(){
-        return this._limitDate;
+        let date = (this._limitDate.getDate() + 1) + '/' + (this._limitDate.getMonth() + 1) + '/' + this._limitDate.getFullYear();
+        return date;
     }
 
     get restDays(){
@@ -44,6 +45,6 @@ export default class Task{
     //Other Methods
 
     _getRestDays(){
-        return (new Date() - this._limitDate) / (1000*60*60*24);
+        return ((this._limitDate.getTime() - new Date()) / (1000*60*60*24)).toFixed(2);
     }
 }

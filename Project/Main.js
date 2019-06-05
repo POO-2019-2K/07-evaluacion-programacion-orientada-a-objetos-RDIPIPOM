@@ -7,10 +7,13 @@ export default class Main {
         //localStorage.removeItem('tasks');
         this._ControlTasks = new ControlTasks();
         this._View = new View();
+        //Update table
+        this._View.update(this._ControlTasks.getTasksSaved());
 
         document.querySelector('#btnRegister').addEventListener('click', () => {
             //Create object Task with all properties
             let ObjTask = new Task(this.createObjectSimpleTask());
+            console.log(ObjTask.restDays);
             //Add the new task
             this._ControlTasks.addTask(ObjTask);
             //Show on table
@@ -21,12 +24,12 @@ export default class Main {
     createObjectSimpleTask() {
         //Format dates
         let stringDate = new Date(document.querySelector('#limitDate').value);
-        stringDate = (stringDate.getDate() + 1) + '/' + (stringDate.getMonth() + 1) + '/' + stringDate.getFullYear();
+        stringDate = stringDate.getFullYear() + '/' + (stringDate.getMonth() + 1) + '/' + (stringDate.getDate() + 1);
         //Create a simple object Task
         let simpleTask = {
             title: document.querySelector('#title').value,
             description: document.querySelector('#description').value,
-            limitDate: stringDate
+            limitDate: new Date(stringDate)
         }
 
         return simpleTask;

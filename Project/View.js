@@ -1,3 +1,5 @@
+import Task from './Task.js';
+
 export default class View{
     constructor(){
         this._table = document.querySelector('#tableTasks');
@@ -8,7 +10,8 @@ export default class View{
         this._RemoveRows();
         //Add all Tasks
         tasks.forEach((objTask) => {
-            this._addToTable(objTask);
+            objTask.limitDate = new Date(objTask.limitDate);            
+            this._addToTable(new Task(objTask));
         });
     }
 
@@ -34,17 +37,17 @@ export default class View{
         let btnDetails = document.createElement('input');
         btnDetails.type = 'button';
         btnDetails.className = 'btn btn_dark';
-        btnDetails.value = 'Detalles';
+        btnDetails.setAttribute('id', 'btnDetails')
 
         let btnEdit = document.createElement('input');
         btnEdit.type = 'button';
         btnEdit.className = 'btn';
-        btnEdit.value = 'Detalles';
+        btnEdit.setAttribute('id', 'btnEdit')
 
         let btnRemove = document.createElement('input');
         btnRemove.type = 'button';
         btnRemove.className = 'btn';
-        btnRemove.value = 'Detalles';
+        btnRemove.setAttribute('id', 'btnRemove')
 
         //Add listenners
         btnDetails.addEventListener('click', () => {

@@ -5,7 +5,7 @@ export default class ControlTasks{
 
     _updateArrayTasks(){
         if(localStorage.getItem('tasks') != null){
-            this._Tasks = JSON.parse(localStorage.getItem('tasks'));
+            this._tasks = JSON.parse(localStorage.getItem('tasks'));
         }
     }
 
@@ -15,6 +15,7 @@ export default class ControlTasks{
         this._tasks.push(this._createObjectTask(objTask));
         //Save in local storange
         localStorage.setItem('tasks', JSON.stringify(this._tasks));
+        console.log(this._tasks);
     }
 
     _createObjectTask(objTask){

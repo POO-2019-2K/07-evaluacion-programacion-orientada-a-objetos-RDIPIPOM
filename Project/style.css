@@ -1,3 +1,4 @@
+/*////////////////////////////////////General////////////////////////////////////*/
 body {
     height: 1500px;
 }
@@ -11,6 +12,8 @@ body {
     background: #08515F;
     color: white;
 }
+
+/*////////////////////////////////////Table////////////////////////////////////*/
 
 table {
     background: #156878;
@@ -28,6 +31,60 @@ tr, th {
 th {
     font-size: 30px;
 }
+
+
+#btnDetails{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    background-repeat: no-repeat;
+    background-image: url('./Assets/Details.png');
+    background-position: center;
+    background-color: white;
+    border-radius: 10px;
+    border: solid white;
+}
+
+#btnDetails:hover {
+    background-image: url('./Assets/Details.png');
+    background-color: #438D9B;
+}
+
+#btnEdit{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    background-repeat: no-repeat;
+    background-image: url('./Assets/Edit.png');
+    background-position: center;
+    background-color: white;
+    border-radius: 10px;
+    border: solid white;
+}
+
+#btnEdit:hover {
+    background-image: url('./Assets/Edit.png');
+    background-color: #438D9B;
+}
+
+#btnRemove{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    background-repeat: no-repeat;
+    background-image: url('./Assets/Remove.png');
+    background-position: center;
+    background-color: white;
+    border-radius: 10px;
+    border: solid white;
+}
+
+#btnRemove:hover {
+    background-image: url('./Assets/Remove.png');
+    background-color: #438D9B;
+}
+
+/*////////////////////////////////////Form////////////////////////////////////*/
 
 #btnAdd {
     width: 70px;
