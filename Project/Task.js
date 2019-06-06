@@ -17,7 +17,7 @@ export default class Task{
     }
 
     get limitDate(){
-        let date = (this._limitDate.getDate() + 1) + '/' + (this._limitDate.getMonth() + 1) + '/' + this._limitDate.getFullYear();
+        let date = this._limitDate.getDate() + '/' + this._limitDate.getMonth() + '/' + this._limitDate.getFullYear();
         return date;
     }
 

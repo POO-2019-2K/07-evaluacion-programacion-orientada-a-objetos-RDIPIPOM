@@ -15,7 +15,6 @@ export default class ControlTasks{
         this._tasks.push(this._createObjectTask(objTask));
         //Save in local storange
         localStorage.setItem('tasks', JSON.stringify(this._tasks));
-        console.log(this._tasks);
     }
 
     _createObjectTask(objTask){

@@ -10,7 +10,7 @@ export default class View{
         this._RemoveRows();
         //Add all Tasks
         tasks.forEach((objTask) => {
-            objTask.limitDate = new Date(objTask.limitDate);            
+            objTask.limitDate = new Date(objTask.limitDate);        
             this._addToTable(new Task(objTask));
         });
     }

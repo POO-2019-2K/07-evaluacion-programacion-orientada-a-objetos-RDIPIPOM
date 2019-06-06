@@ -31,7 +31,6 @@ export default class Main {
             description: document.querySelector('#description').value,
             limitDate: new Date(stringDate)
         }
-
         return simpleTask;
     }
 }
