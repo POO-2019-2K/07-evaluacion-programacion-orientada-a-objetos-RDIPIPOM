@@ -1,7 +1,7 @@
 import Task from './Task.js';
 
-export default class View{
-    constructor(){
+export default class View {
+    constructor() {
         this._table = document.querySelector('#tableTasks');
     }
 
@@ -10,7 +10,8 @@ export default class View{
         this._RemoveRows();
         //Add all Tasks
         tasks.forEach((objTask) => {
-            objTask.limitDate = new Date(objTask.limitDate);        
+            let date = objTask.limitDate.split('/');
+            objTask.limitDate = new Date(date[2], date[1], date[0]);
             this._addToTable(new Task(objTask));
         });
     }
@@ -21,18 +22,18 @@ export default class View{
         }
     }
 
-    _addToTable(objTask){
+    _addToTable(objTask) {
         let row = this._table.insertRow(-1);
         let cell = row.insertCell(0);
         cell.appendChild(document.createTextNode(objTask.title));
         cell = row.insertCell(1);
-        cell.appendChild(document.createTextNode(objTask.limitDate));
+        cell.appendChild(document.createTextNode(objTask.getLimitDateAsString()));
         cell = row.insertCell(2);
         cell.appendChild(document.createTextNode(objTask.restDays));
         this._addButtons(row, cell);
     }
 
-    _addButtons(row, cell){
+    _addButtons(row, cell) {
         //Create buttons
         let btnDetails = document.createElement('input');
         btnDetails.type = 'button';

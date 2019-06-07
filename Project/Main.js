@@ -12,8 +12,7 @@ export default class Main {
 
         document.querySelector('#btnRegister').addEventListener('click', () => {
             //Create object Task with all properties
-            let ObjTask = new Task(this.createObjectSimpleTask());
-            console.log(ObjTask.restDays);
+            let ObjTask = new Task(this.createObjectTask());
             //Add the new task
             this._ControlTasks.addTask(ObjTask);
             //Show on table
@@ -21,17 +20,18 @@ export default class Main {
         });
     }
 
-    createObjectSimpleTask() {
+    createObjectTask() {
         //Format dates
         let stringDate = new Date(document.querySelector('#limitDate').value);
-        stringDate = stringDate.getFullYear() + '/' + (stringDate.getMonth() + 1) + '/' + (stringDate.getDate() + 1);
+        stringDate = stringDate.getFullYear() + '/' + stringDate.getMonth() + '/' + (stringDate.getDate() + 1);
         //Create a simple object Task
-        let simpleTask = {
+        let Task = {
             title: document.querySelector('#title').value,
             description: document.querySelector('#description').value,
-            limitDate: new Date(stringDate)
+            limitDate: new Date(document.querySelector('#limitDate').value),
+            restDays: ((new Date(document.querySelector('#limitDate').value).getTime() - new Date()) / (1000*60*60*24)).toFixed(2)
         }
-        return simpleTask;
+        return Task;
     }
 }
 

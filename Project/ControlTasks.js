@@ -21,7 +21,7 @@ export default class ControlTasks{
         let newObjTask = {
             title: objTask.title,
             description: objTask.description,
-            limitDate: objTask.limitDate,
+            limitDate: objTask.getLimitDateAsStringWithOneMore(),
             restDays: objTask.restDays
         }
 
