@@ -39,6 +39,8 @@ export default class View {
         btnDetails.type = 'button';
         btnDetails.className = 'btn btn_dark';
         btnDetails.setAttribute('id', 'btnDetails')
+        btnDetails.setAttribute('data-toggle', 'modal');
+        btnDetails.setAttribute('data-target', '#dialogDetails');
 
         let btnEdit = document.createElement('input');
         btnEdit.type = 'button';

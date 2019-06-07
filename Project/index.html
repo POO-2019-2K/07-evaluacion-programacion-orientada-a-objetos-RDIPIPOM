@@ -22,7 +22,7 @@
             <button id="btnAdd" type="button" data-toggle="modal" data-target="#dialogo1"></button>
         </div>
 
-        <!--Diálogo Modal-->
+        <!--Diálogo modal para agregar mas actividades-->
 
         <div class="modal fade" id="dialogo1">
             <div class="modal-dialog">
@@ -55,6 +55,28 @@
             </div>
         </div>
 
+        <!--Diálogo modal para mostrar detalles de una actividad-->
+
+        <div class="modal fade" id="dialogDetails">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- cabecera del diálogo -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Detalles</h4>
+                        <button type="button" class="close" data-dismiss="modal">X</button>
+                    </div>
+
+                    <!-- cuerpo del diálogo -->
+                    <form id="formTask">
+                        <div class="form-group">
+                            <textarea id="description" class="form-control" rows="8" readonly required></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <!--Table-->
 
         <div class="row">
@@ -72,7 +94,7 @@
                         <td colspan="6" class="sub-header">
                             <select id="sort" class="form-control">
                                 <option value="tname">Nombre</option>
-                                <option value="tage">Prioridad</option>
+                                <option value="triority">Prioridad</option>
                             </select>
                         </td>
                     </tr>
