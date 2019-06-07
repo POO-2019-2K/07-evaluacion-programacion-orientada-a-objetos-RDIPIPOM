@@ -17,7 +17,7 @@ export default class View {
     }
 
     _RemoveRows() {
-        for (let i = this._table.rows.lenght; i > 1; i--) {
+        for (let i = this._table.rows.length - 1; i > 2; i--) {
             this._table.deleteRow(i);
         }
     }
