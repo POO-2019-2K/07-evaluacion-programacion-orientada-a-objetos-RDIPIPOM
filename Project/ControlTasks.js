@@ -49,4 +49,30 @@ export default class ControlTasks {
         //Save array tasks
         localStorage.setItem('tasks', JSON.stringify(this._tasks));
     }
+
+    sortByTitle() {
+        //Update array
+        this._updateArrayTasks();
+        //Sort
+        this._tasks.sort(function (a, b) {
+            if (a.title > b.title) {
+                return 1;
+            } else {
+                return -1;
+            }
+        });
+        //Save in local Storange
+        localStorage.setItem("tasks", JSON.stringify(this._tasks));
+    }
+
+    sortByPriority() {
+        //Update array
+        this._updateArrayTasks();
+        //Sort
+        this._tasks.sort(function (a, b) {
+            return (a.restDays - b.restDays);
+        });
+        //Save in local Storange
+        localStorage.setItem("tasks", JSON.stringify(this._tasks));
+    }
 }

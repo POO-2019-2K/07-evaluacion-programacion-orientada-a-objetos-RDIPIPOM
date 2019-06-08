@@ -4,7 +4,7 @@ import ControlTasks from './ControlTasks.js';
 export default class View {
     constructor() {
         this._table = document.querySelector('#tableTasks');
-        this._ControlTasks = new ControlTasks();
+        this._controlTasks = new ControlTasks();
     }
 
     update(tasks) {
@@ -85,7 +85,17 @@ export default class View {
     }
 
     _removeTask(ID){
-        this._ControlTasks.removeTask(ID);
-        this.update(this._ControlTasks.getTasksSaved());
+        this._controlTasks.removeTask(ID);
+        this.update(this._controlTasks.getTasksSaved());
+    }
+
+    sortByTitle(){
+        this._controlTasks.sortByTitle();
+        this.update(this._controlTasks.getTasksSaved());
+    }
+
+    sortByPriority(){
+        this._controlTasks.sortByPriority();
+        this.update(this._controlTasks.getTasksSaved());
     }
 }
