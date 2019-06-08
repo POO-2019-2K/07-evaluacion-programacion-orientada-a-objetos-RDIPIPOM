@@ -19,12 +19,12 @@
             </div>
         </div>
         <div>
-            <button id="btnAdd" type="button" data-toggle="modal" data-target="#dialogo1"></button>
+            <button id="btnAdd" type="button" data-toggle="modal" data-target="#dialogRegisterTask"></button>
         </div>
 
         <!--Diálogo modal para agregar mas actividades-->
 
-        <div class="modal fade" id="dialogo1">
+        <div class="modal fade" id="dialogRegisterTask">
             <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -55,6 +55,39 @@
             </div>
         </div>
 
+        <!--Diálogo modal para editar actividades-->
+
+        <div class="modal fade" id="dialogEdit">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- cabecera del diálogo -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Editar tarea</h4>
+                        <button type="button" class="close" data-dismiss="modal">X</button>
+                    </div>
+
+                    <!-- cuerpo del diálogo -->
+                    <form id="formTask">
+                        <div class="form-group">
+                            <label for="editTitle">Título:</label>
+                            <input id="editTitle" class="form-control" type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editDescription">Descripción:</label>
+                            <textarea id="editDescription" class="form-control" rows="8" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="editLimitDate">Fecha de límite:</label>
+                            <input id="editLImitDate" class="form-control" type="date" required>
+                        </div>
+                        <button id="btnSave" type="button" class="btn btn-primary"
+                            data-dismiss="modal">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <!--Diálogo modal para mostrar detalles de una actividad-->
 
         <div class="modal fade" id="dialogDetails">
@@ -70,7 +103,7 @@
                     <!-- cuerpo del diálogo -->
                     <form id="formTask">
                         <div class="form-group">
-                            <textarea id="description" class="form-control" rows="8" readonly required></textarea>
+                            <textarea id="details" class="form-control" rows="8" readonly></textarea>
                         </div>
                     </form>
                 </div>

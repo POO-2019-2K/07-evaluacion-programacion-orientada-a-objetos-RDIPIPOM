@@ -47,12 +47,14 @@ export default class View {
         let btnEdit = document.createElement('input');
         btnEdit.type = 'button';
         btnEdit.className = 'btn';
-        btnEdit.setAttribute('id', 'btnEdit')
+        btnEdit.setAttribute('id', 'btnEdit');
+        btnEdit.setAttribute('data-toggle', 'modal');
+        btnEdit.setAttribute('data-target', '#dialogEdit');
 
         let btnRemove = document.createElement('input');
         btnRemove.type = 'button';
         btnRemove.className = 'btn';
-        btnRemove.setAttribute('id', 'btnRemove')
+        btnRemove.setAttribute('id', 'btnRemove');
 
         //Add listenners
         btnDetails.addEventListener('click', () => {
@@ -76,25 +78,41 @@ export default class View {
         cell.appendChild(btnRemove);
     }
 
-    _ShowDetailsOfTask(ID){
-
+    _ShowDetailsOfTask(ID) {
+        //Find the Task with this ID
+        this._controlTasks.getTasksSaved().forEach((objTask) => {
+            if (objTask.ID === ID) {
+                //Set the description in the textarea
+                document.querySelector('#details').value = objTask.description;
+                return;
+            }
+        });
     }
 
-    _editTask(ID){
-        
+    _editTask(ID) {
+        //Find the Task with this ID
+        this._controlTasks.getTasksSaved().forEach((objTask) => {
+            if (objTask.ID === ID) {
+                //Get all dates of this
+                document.querySelector('#editTitle').value = objTask.title;
+                document.querySelector('#editDescription').value = objTask.description;
+                //document.querySelector('#editTitle').value = objTask.title;
+                return;
+            }
+        });
     }
 
-    _removeTask(ID){
+    _removeTask(ID) {
         this._controlTasks.removeTask(ID);
         this.update(this._controlTasks.getTasksSaved());
     }
 
-    sortByTitle(){
+    sortByTitle() {
         this._controlTasks.sortByTitle();
         this.update(this._controlTasks.getTasksSaved());
     }
 
-    sortByPriority(){
+    sortByPriority() {
         this._controlTasks.sortByPriority();
         this.update(this._controlTasks.getTasksSaved());
     }

@@ -27,13 +27,18 @@ export default class Main {
             this._view.update(this._controlTasks.getTasksSaved());
         });
 
-        //Listnner of the select sort
+        //Listenner of the select sort
         document.querySelector('#sort').addEventListener('change', () => {
             if (document.querySelector('#sort').value === 'ttitle') {
                 this._view.sortByTitle();
             } else {
                 this._view.sortByPriority();
             }
+        });
+
+        //Listenner of the button save
+        document.querySelector('#btnSave').addEventListener('click', () => {
+
         });
     }
 
