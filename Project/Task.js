@@ -1,5 +1,6 @@
 export default class Task {
     constructor(objTask) {
+        this._ID = objTask.ID;
         this._title = objTask.title;
         this._description = objTask.description;
         this._limitDate = objTask.limitDate;
@@ -7,6 +8,10 @@ export default class Task {
     }
 
     //Getters
+
+    get ID() {
+        return this._ID;
+    }
 
     get title() {
         return this._title;
@@ -25,6 +30,11 @@ export default class Task {
     }
 
     //Setters
+
+    set ID(ID) {
+        this._ID = ID;
+        return this._ID;
+    }
 
     set title(title) {
         this._title = title;

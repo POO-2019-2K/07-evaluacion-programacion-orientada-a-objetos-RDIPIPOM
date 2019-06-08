@@ -1,8 +1,10 @@
 import Task from './Task.js';
+import ControlTasks from './ControlTasks.js';
 
 export default class View {
     constructor() {
         this._table = document.querySelector('#tableTasks');
+        this._ControlTasks = new ControlTasks();
     }
 
     update(tasks) {
@@ -30,10 +32,10 @@ export default class View {
         cell.appendChild(document.createTextNode(objTask.getLimitDateAsString()));
         cell = row.insertCell(2);
         cell.appendChild(document.createTextNode(objTask.restDays));
-        this._addButtons(row, cell);
+        this._addButtons(row, cell, objTask);
     }
 
-    _addButtons(row, cell) {
+    _addButtons(row, cell, objTask) {
         //Create buttons
         let btnDetails = document.createElement('input');
         btnDetails.type = 'button';
@@ -54,15 +56,15 @@ export default class View {
 
         //Add listenners
         btnDetails.addEventListener('click', () => {
-            console.log('btnDetails')
+            this._ShowDetailsOfTask(objTask.ID);
         });
 
         btnEdit.addEventListener('click', () => {
-            console.log('btnEdit')
+            this._editTask(objTask.ID);
         });
 
         btnRemove.addEventListener('click', () => {
-            console.log('btnRemove')
+            this._removeTask(objTask.ID);
         });
 
         //Show in table
@@ -72,5 +74,18 @@ export default class View {
         cell.appendChild(btnEdit);
         cell = row.insertCell(5);
         cell.appendChild(btnRemove);
+    }
+
+    _ShowDetailsOfTask(ID){
+
+    }
+
+    _editTask(ID){
+        
+    }
+
+    _removeTask(ID){
+        this._ControlTasks.removeTask(ID);
+        this.update(this._ControlTasks.getTasksSaved());
     }
 }
