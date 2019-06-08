@@ -52,11 +52,31 @@ export default class Task {
     }
 
     //Other methods
+    _getDayOfLimitDate() {
+        if (this._limitDate.getDate() < 10) {
+            return '0' + this._limitDate.getDate();
+        } else {
+            return this._limitDate.getDate();
+        }
+    }
+
+    _getMonthOfLimitDate() {
+        if (this._limitDate.getMonth() < 10) {
+            return '0' + this._limitDate.getMonth();
+        } else {
+            return this._limitDate.getMonth();
+        }
+    }
+
     getLimitDateAsStringWithOneMore() {
         return (this._limitDate.getDate() + 1) + '/' + (this._limitDate.getMonth() + 1) + '/' + this._limitDate.getFullYear();
     }
 
     getLimitDateAsString() {
         return this._limitDate.getDate() + '/' + this._limitDate.getMonth() + '/' + this._limitDate.getFullYear();
+    }
+
+    getLimitDateAsInputFormat() {
+        return this._limitDate.getFullYear() + '-' + this._getMonthOfLimitDate() + '-' + this._getDayOfLimitDate();
     }
 }

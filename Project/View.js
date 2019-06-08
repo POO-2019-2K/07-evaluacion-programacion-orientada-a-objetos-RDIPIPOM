@@ -93,11 +93,13 @@ export default class View {
         //Find the Task with this ID
         this._controlTasks.getTasksSaved().forEach((objTask) => {
             if (objTask.ID === ID) {
-                //Get all dates of this
+                let date = objTask.limitDate.split('/');
+                objTask.limitDate = new Date(date[2], date[1], date[0]);
+                objTask = new Task(objTask);
+                //Get all data of this
                 document.querySelector('#editTitle').value = objTask.title;
                 document.querySelector('#editDescription').value = objTask.description;
-                //document.querySelector('#editTitle').value = objTask.title;
-                return;
+                document.querySelector('#editLimitDate').value = objTask.getLimitDateAsInputFormat();
             }
         });
     }

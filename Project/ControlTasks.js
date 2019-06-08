@@ -75,6 +75,4 @@ export default class ControlTasks {
         //Save in local Storange
         localStorage.setItem("tasks", JSON.stringify(this._tasks));
     }
-
-    
 }
