@@ -35,7 +35,7 @@ export default class View {
         this._addButtons(row, cell, objTask);
     }
 
-    _addButtons(row, cell, objTask) {
+    _addButtons(row, cellBtnDetails, objTask) {
         //Create buttons
         let btnDetails = document.createElement('input');
         btnDetails.type = 'button';
@@ -70,12 +70,12 @@ export default class View {
         });
 
         //Show in table
-        cell = row.insertCell(3);
-        cell.appendChild(btnDetails);
-        cell = row.insertCell(4);
-        cell.appendChild(btnEdit);
-        cell = row.insertCell(5);
-        cell.appendChild(btnRemove);
+        cellBtnDetails = row.insertCell(3);
+        cellBtnDetails.appendChild(btnDetails);
+        cellbtnEdit = row.insertCell(4);
+        cellbtnEdit.appendChild(btnEdit);
+        cellbtnRemove = row.insertCell(5);
+        cellbtnRemove.appendChild(btnRemove);
     }
 
     _ShowDetailsOfTask(ID) {

@@ -4,7 +4,6 @@ import Task from './Task.js';
 
 export default class Main {
     constructor() {
-        //localStorage.removeItem('tasks');
         this._controlTasks = new ControlTasks();
         this._view = new View();
         this._taskCounter = 0;
@@ -16,6 +15,9 @@ export default class Main {
 
         //Update table
         this._view.update(this._controlTasks.getTasksSaved());
+
+        //Order tasks by priority
+        this._view.sortByPriority();
 
         //Listnner of the button register
         document.querySelector('#btnRegister').addEventListener('click', () => {
@@ -49,10 +51,10 @@ export default class Main {
         //Create a simple object Task
         let Task = {
             ID: this._taskCounter++,
-            title: document.querySelector('#title').value,
+            title: document.querySelector('#name').value,
             description: document.querySelector('#description').value,
             limitDate: new Date(document.querySelector('#limitDate').value),
-            restDays: ((new Date(document.querySelector('#limitDate').value).getTime() - new Date()) / (1000 * 60 * 60 * 24)).toFixed(2)
+            restDays: Math.ceil((new Date(document.querySelector('#limitDate').value).getTime() - new Date()) / (1000 * 60 * 60 * 24))
         }
 
         //Save in Local storange the new ID
