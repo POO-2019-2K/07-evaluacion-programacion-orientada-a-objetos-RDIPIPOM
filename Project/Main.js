@@ -38,20 +38,18 @@ export default class Main {
             }
         });
 
-        //Listenner of the button save
-        document.querySelector('#btnSave').addEventListener('click', () => {
-
+        //Listenner of the button update task
+        document.querySelector('#btnUpdateTask').addEventListener('click', () => {
+            this._controlTasks.updateTask(localStorage.getItem('IDToEdit'), new Task(this._createObjectTaskToEdit()));
+            this._view.update(this._controlTasks.getTasksSaved());
         });
     }
 
     _createObjectTask() {
-        //Format dates
-        let stringDate = new Date(document.querySelector('#limitDate').value);
-        stringDate = stringDate.getFullYear() + '/' + stringDate.getMonth() + '/' + (stringDate.getDate() + 1);
         //Create a simple object Task
         let Task = {
             ID: this._taskCounter++,
-            title: document.querySelector('#name').value,
+            title: document.querySelector('#title').value,
             description: document.querySelector('#description').value,
             limitDate: new Date(document.querySelector('#limitDate').value),
             restDays: Math.ceil((new Date(document.querySelector('#limitDate').value).getTime() - new Date()) / (1000 * 60 * 60 * 24))
@@ -59,6 +57,19 @@ export default class Main {
 
         //Save in Local storange the new ID
         localStorage.setItem('taskCounter', this._taskCounter);
+
+        return Task;
+    }
+
+    _createObjectTaskToEdit() {
+        //Create a simple object Task
+        let Task = {
+            ID: 0, //ID will be assignement later
+            title: document.querySelector('#EditTitle').value,
+            description: document.querySelector('#EditDescription').value,
+            limitDate: new Date(document.querySelector('#EditLimitDate').value),
+            restDays: Math.ceil((new Date(document.querySelector('#EditLimitDate').value).getTime() - new Date()) / (1000 * 60 * 60 * 24))
+        }
 
         return Task;
     }

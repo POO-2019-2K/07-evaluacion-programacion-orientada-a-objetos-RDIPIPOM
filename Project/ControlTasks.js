@@ -50,6 +50,25 @@ export default class ControlTasks {
         localStorage.setItem('tasks', JSON.stringify(this._tasks));
     }
 
+    updateTask(ID, task) {        
+        ID = Number(ID);
+        task.ID = ID;
+        //Update array and push in the array;
+        this._updateArrayTasks();
+        //Find the task with the ID
+        this._tasks.forEach((objTask, index) => {
+            if (objTask.ID === ID) {
+                //Remove this object
+                this._tasks.splice(index, 1);
+                return;
+            }
+        });
+        //Add the good task 
+        this._tasks.push(this._createObjectTask(task));
+        //Save array tasks
+        localStorage.setItem('tasks', JSON.stringify(this._tasks));
+    }
+
     sortByTitle() {
         //Update array
         this._updateArrayTasks();

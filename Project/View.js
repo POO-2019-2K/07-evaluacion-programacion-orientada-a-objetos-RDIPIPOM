@@ -35,7 +35,7 @@ export default class View {
         this._addButtons(row, cell, objTask);
     }
 
-    _addButtons(row, cellBtnDetails, objTask) {
+    _addButtons(row, cell, objTask) {
         //Create buttons
         let btnDetails = document.createElement('input');
         btnDetails.type = 'button';
@@ -70,12 +70,12 @@ export default class View {
         });
 
         //Show in table
-        cellBtnDetails = row.insertCell(3);
-        cellBtnDetails.appendChild(btnDetails);
-        cellbtnEdit = row.insertCell(4);
-        cellbtnEdit.appendChild(btnEdit);
-        cellbtnRemove = row.insertCell(5);
-        cellbtnRemove.appendChild(btnRemove);
+        cell = row.insertCell(3);
+        cell.appendChild(btnDetails);
+        cell = row.insertCell(4);
+        cell.appendChild(btnEdit);
+        cell = row.insertCell(5);
+        cell.appendChild(btnRemove);
     }
 
     _ShowDetailsOfTask(ID) {
@@ -100,6 +100,8 @@ export default class View {
                 document.querySelector('#editTitle').value = objTask.title;
                 document.querySelector('#editDescription').value = objTask.description;
                 document.querySelector('#editLimitDate').value = objTask.getLimitDateAsInputFormat();
+                //Set ID in the local storange to know after click on save what task is.
+                localStorage.setItem('IDToEdit', ID.toString());
             }
         });
     }
