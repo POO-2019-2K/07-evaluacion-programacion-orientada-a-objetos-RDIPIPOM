@@ -27,15 +27,13 @@ export default class Main {
             this._controlTasks.addTask(ObjTask);
             //Show on table
             this._view.update(this._controlTasks.getTasksSaved());
+            //Sort data
+            this._sort();
         });
 
         //Listenner of the select sort
-        document.querySelector('#sort').addEventListener('change', () => {
-            if (document.querySelector('#sort').value === 'ttitle') {
-                this._view.sortByTitle();
-            } else {
-                this._view.sortByPriority();
-            }
+        document.querySelector('#sort').addEventListener('change', () =>{
+            this._sort();
         });
 
         //Listenner of the button update task
@@ -43,6 +41,14 @@ export default class Main {
             this._controlTasks.updateTask(localStorage.getItem('IDToEdit'), new Task(this._createObjectTaskToEdit()));
             this._view.update(this._controlTasks.getTasksSaved());
         });
+    }
+
+    _sort() {
+        if (document.querySelector('#sort').value === 'ttitle') {
+            this._view.sortByTitle();
+        } else {
+            this._view.sortByPriority();
+        }
     }
 
     _createObjectTask() {
@@ -54,6 +60,12 @@ export default class Main {
             limitDate: new Date(document.querySelector('#limitDate').value),
             restDays: Math.ceil((new Date(document.querySelector('#limitDate').value).getTime() - new Date()) / (1000 * 60 * 60 * 24))
         }
+
+
+        //Clear inputs in the form
+        document.querySelector('#title').value = "";
+        document.querySelector('#description').value = "";
+        document.querySelector('#limitDate').value = "";
 
         //Save in Local storange the new ID
         localStorage.setItem('taskCounter', this._taskCounter);
